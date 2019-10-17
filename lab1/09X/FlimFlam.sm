@@ -1,0 +1,151 @@
+PUSH 0       accumulator for the number we're building -- initially 0
+READC        get first character
+DUP 0        check to see if it is newline (10)
+PUSH -10     
+ADD          
+BEGIN        loop as long as not newline
+  PUSH -48   convert ascii digit to integer ('0' = 48)
+  ADD      
+  SWAP 1     accumulator = accumlator*10 + new digit
+  PUSH 10
+  MUL
+  ADD  
+  READC      get next character
+  DUP 0      once again, check for newline
+  PUSH -10
+  ADD
+END
+POP          get rid of last character we read (newline)
+
+//Now we have the number n that we will be counting up to.
+
+
+
+PUSH 1
+SWAP 1
+DUP 0
+BEGIN
+  DUP 1 //copy int to print
+
+  //Do logic to figure out whether to print the int or something else
+  PUSH 3
+  DUP 1 //Make copy to check if divisible by three
+  PUSH 3 
+
+  //Following Code Block is equvalent to mod - see excercise 07
+  DIV
+  MUL
+  NEG
+  DUP 1
+  ADD
+  //
+
+//*** i n i x ****// i is iter, n is argument, x is result of i mod 3 ***//
+  SWAP 1  //** inxi **//
+//Now check if div by 5
+
+  PUSH 5
+  DUP 1
+  PUSH 5
+
+  //Following Code Block is equvalent to mod - see excercise 07
+  DIV
+  MUL
+  NEG
+  DUP 1
+  ADD
+  //
+
+//***** i n x i y***********// y is result of i mod 5
+
+  SWAP 1  //** i n x y i **//
+
+//turn the stack spot with i (top spot) into a flag to use as a signal for 
+//whether to print the integer or not. 
+  POP
+  PUSH 1 //Which is for yes, execute. 
+  //if i is divisible by either 3 or 5, change this to 0.
+
+//Now check for FLIM
+
+  DUP 2 /// i n x y 1 x
+  PUSH 0 ////i n x y 1 x 0
+  LEQ   // *** i n x y 1 z where z is result of leq *** //
+
+  BEGIN
+    //change flag
+    POP
+    PUSH 0
+
+    //Print Flim
+    PUSH 70 //ascii for F
+    PRINTC
+    PUSH 108
+    PRINTC
+    PUSH 105
+    PRINTC
+    PUSH 109 
+    PRINTC
+
+    PUSH 0 //turn loop into if then
+  END
+
+//Now check for FLAM
+//**** i n x y a(0 or 1) ****//
+
+  DUP 1 // i n x y i y
+  PUSH 0 /// i n x y i y 0
+  LEQ // i n x y i z
+
+  BEGIN
+    //change flag
+    POP
+    PUSH 0
+
+    PUSH 70 //ascii for F
+    PRINTC
+    PUSH 108
+    PRINTC
+    PUSH 97
+    PRINTC
+    PUSH 109
+    PRINTC
+
+    PUSH 0
+  END
+
+//******** i n x y a where a is 1 if we should print int and 0 if not************ //
+  
+  BEGIN  //We enter this block if n not div by 3 or by 5
+  //********* i n x y ****//
+    DUP 3
+    PRINTI
+
+    PUSH 0
+  END
+
+//get rid of x and y to start again
+  POP
+  POP
+
+
+  PUSH 10 //newlin    //This block prints the 
+  PRINTC              //newline between each int
+
+
+  SWAP 1 //This block
+  PUSH 1 //increments the num to
+  ADD    //print and puts stack back
+  SWAP 1 //in order
+  
+  DUP 1
+  DUP 1
+  LEQ //check if we have reached n yet for BEGIN. Will be 0 if so, else -1
+END
+
+  
+
+PUSH 10  //newline
+PRINTC
+
+

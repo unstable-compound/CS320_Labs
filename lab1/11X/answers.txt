@@ -1,0 +1,47 @@
+Put your answers in this file.
+
+(a)
+
+For error kind 1:
+SMinterp.step() throws an ArrayIndexOutOfBoundsException because it tries to access index -1.
+
+For error kind 2:
+The interpreter just decrements the stack pointer anyways, and the errors are 'saved for later' 
+for whenever the stack pointer gets used next to actually access something. 
+
+For error kind 3:
+There is another ArrayIndexOutOfBoundsException, this time from SMinterp.matchingEnd() 
+because that function keeps looping through the array of commands, looking for END, until
+it reaches byond the array length.
+
+For error kind 4:
+There is another ArrayIndexOutOfBoundsException, this time from SMinterp.matchingBegin() 
+
+For error kind 5:
+In SMinterp.step() there is a NumberFormatException when  
+      int p = Integer.parseInt(fields[1]);        
+is executed.
+
+
+(b)
+
+For error kind 1:
+In the compiled code, ArrayIndexOutOfBoundsException is thrown when we run the command for stage C.
+
+For error kind 2:
+The compiled code just decrements an integer being used as the array key for top of stack, but does nothing with it. 
+No exceptions are thrown, and the error is undetected. 
+
+For error kind 3:
+When running stage B, we get an error where we reach end of file while parsing. 
+Upon inspection, the compiled code is missing a closing bracket. 
+
+For error kind 4:
+In the compiled code, it seems there is no corresponding logic to the instruction opcode. So the compiler just skipped
+over the mispelled command. 
+There was no manifestation of the error at any stage of compiling and running the compiled code. 
+
+For error kind 5:
+The compiler throws a NumberFormatException during stage A. This happens because of the use of Integer.parseInt().
+
+

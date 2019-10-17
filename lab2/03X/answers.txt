@@ -1,0 +1,37 @@
+Put your answers in this file.
+
+(a)
+
+S->P
+P->P(A)
+A->P
+P->
+
+This grammar is unambiguous because when doing a leftmost derivation, there is only 
+one production rule available that results in another operation being available. 
+
+
+(b)
+S->E
+E->E+P|P
+P->P*X|X
+X->A^X|A
+A->(E)|n
+
+This grammar is unambiguous because when doing a leftmost derivation, the non terminal has only one production rule that gives results in the desired output.
+
+(c)
+
+S->A
+A->B;
+B->epsilon|nC
+C->epsilon|,nC
+
+This grammar is unambiguous because during leftmost derivation, the non terminal has 
+only one production rule that gives a another non terminal to use.
+
+
+
+
+
+

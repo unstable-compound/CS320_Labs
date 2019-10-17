@@ -1,0 +1,24 @@
+PUSH 10     Limit value n: the rest of the code should work for any value here, not just 10
+PUSH 1
+SWAP 1
+DUP 0
+BEGIN
+  DUP 1
+  PRINTI
+  PUSH 32
+  PRINTC
+
+  SWAP 1
+  PUSH 1
+  ADD
+  SWAP 1
+  
+  DUP 1
+  DUP 1
+  LEQ
+
+END
+
+PUSH 10
+PRINTC
+
