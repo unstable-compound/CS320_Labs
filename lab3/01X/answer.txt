@@ -1,0 +1,14 @@
+In this code, when passing 2000000000 as the argument, the result is signed integar overflow, which is a UB in C++. 
+
+Because the compiler is able to decide how to handle a UB, it looks to me like it was noted that mathematically 
+speaking, the behavior of the function should have a<=b no matter what since b is a positive integer (2000000000)
+added to a. 
+
+
+So, it looks like the if statement was reduced to the equivalent of:
+
+if (true)
+    cout << a << " <= " << b << endl;
+
+
+with no else clause. 
