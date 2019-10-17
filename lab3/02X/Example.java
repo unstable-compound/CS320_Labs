@@ -1,22 +1,15 @@
 class Example {
-  
+
   static boolean f(int i) {
     boolean a;
-    if (i % 2 != 0)
-      a = false;
-    else
-      a = true;
-    if (i > 0) {
-      if (i <= 100)
-	return (a == false) ? true : false;
-      else if (i > 1000 || a == true)
-	return false;
-      else
-	return true;
-    } else
-      return false;
+    a = (i % 2 != 0);
+    //should be true if even
+    //return false if i > 1000 || i <= 0 || !a
+
+    return !(i > 1000 || i<= 0 || !a);
+
   }
-  
+
   public static void main(String argv[]) {
     int i = Integer.parseInt(argv[0]);
     boolean b = f(i);
