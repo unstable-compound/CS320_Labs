@@ -47,9 +47,19 @@ class Parser {
   // factor : - factor
   //        : primary
   private Exp parseFactor() throws Failure {
-    return parsePrimary();   // just temporarily
-    // delete the line above and complete the function properly
+
+    switch(lexer.token) {
+      case MINUS:
+        lexer.nextToken();
+        Exp exp = new NegExp(parseFactor());
+        return exp;
+      default:
+        return parsePrimary();
+    }
   }
+
+
+
 
   // term : term  * factor
   //      | term / factor
@@ -57,8 +67,22 @@ class Parser {
   // to avoid left-recursion, process this as
   // term : factor { (*|/) factor }
   private Exp parseTerm() throws Failure {
-    return parseFactor();   // just temporarily 
-    // delete the line above and complete the function properly
+    Exp exp = parseFactor();
+    while (true) {
+      switch(lexer.token) {
+        case TIMES:
+          lexer.nextToken();
+          exp = new MulExp(exp,parseFactor());
+          break;
+        case DIVIDE:
+          lexer.nextToken();
+          exp = new DivExp(exp,parseFactor());
+          break;
+        default:
+          return exp;
+      }
+    }
+
   }
   
   // expr    : expr + term
@@ -70,20 +94,20 @@ class Parser {
     Exp exp = parseTerm();
     while (true) {
       switch(lexer.token) {
-      case PLUS:
-	lexer.nextToken();
-	exp = new AddExp(exp,parseTerm());
-	break;
-      case MINUS:
-	lexer.nextToken();
-	exp = new SubExp(exp,parseTerm());
-	break;
-      default:
-	return exp;
+        case PLUS:
+          lexer.nextToken();
+          exp = new AddExp(exp,parseTerm());
+          break;
+        case MINUS:
+          lexer.nextToken();
+          exp = new SubExp(exp,parseTerm());
+          break;
+        default:
+          return exp;
       }
     }
   }
-  
+
   class Failure extends Exception {
     Failure(String text) {
       super(text);
