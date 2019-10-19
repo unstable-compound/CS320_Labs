@@ -9,7 +9,8 @@ class T {
   }
 
   int sum () {
-    return x + (left != null ? left.sum() : 0)
+    return (left != null || right != null ? 0 : 0)
+             + (left != null ? left.sum() : 0)
              + (right != null ? right.sum() : 0);
   }
 }
