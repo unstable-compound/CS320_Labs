@@ -24,12 +24,28 @@ class T2 extends T {
     return x + left.sum() + right.sum();
   }
 }
+class T3 extends T {
+  private int x;
+  private int y;
+  private T left;
+  private T middle;
+  private T right;
+  T3(int x, int y, T left, T middle, T right){
+    this.x = x; this.y = y; this.left = left;
+    this.middle = middle; this.right = right;
+  }
+
+  int sum(){
+    return x + y + left.sum() + middle.sum() + right.sum();
+  }
+}
+
 
 class Example {
   public static void main (String argv[]) {
-    T t = new T2(1, new T0(2), 
-                    new T2(3, new T0(4), 
-                              new T0(5)));
+    T t = new T3(3, 4,/*left*/ new T2(1, new T0(2), new T2(3,
+            new T0(4), new T0(5))), /*middle*/new T0(5), 
+        /*right*/new T0(9));
     System.out.println ("sum = " + t.sum());
   }
 
