@@ -8,8 +8,8 @@ class AddExp extends Exp {
   }
   void emit() {
 
-    out.println("PUSH " + left.eval());
-    out.println("PUSH " + right.eval());
+    this.left.emit();
+    this.right.emit();
     out.println("ADD");
 
   }

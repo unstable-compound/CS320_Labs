@@ -7,8 +7,9 @@ class SubExp extends Exp {
     return left.eval() - right.eval();
   }
   void emit(){
-    out.println("PUSH " + left.eval());
-    out.println("PUSH " + right.eval());
+    left.emit();
+    right.emit();
+
     out.println("NEG");
     out.println("ADD");
   
