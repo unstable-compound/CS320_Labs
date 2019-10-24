@@ -1,0 +1,95 @@
+1.
+Claim: "For arrays, prepending is much slower than appending."
+
+Test
+  Parameters: (array 10000 0 1000 0) and (array 10000 1000 0 0)
+
+  Expected Results: Prepending will be slower, because it needs
+  to copy the whole array each time, while the appending operation
+  only needs to copy the array when it is full. 
+
+  Times Obtained:
+    Prepending: user+sys = 1.685+.146 = 1.831s
+    Appending: user+sys = .344+.128 = .472s
+
+  Analysis: The prepending test took almost 4 times as long as the 
+  appending operation, which verifies our previous assumptions. 
+
+
+*******************************************************************
+
+
+
+
+
+2.
+Claim: "For lists, prepending and appending are roughly the same speed."
+
+Test
+  Parameters: (list 10000 0 1000 0) and (list 10000 1000 0 0)
+
+  Expected Results: The 2 sets of test parameters are expected 
+  to produce very similar output in terms of runtime. 
+
+  Times Obtained:
+    For append: sys+user = .221+.318 = .539
+    For prepend: sys+user = .207+.333 = .54
+
+  Analysis: The runtime for the two operations gave very close
+  results which is what was expected. In terms of complexity, 
+  The two operations are the same class. 
+
+
+*******************************************************************
+
+
+
+
+
+3.
+Claim: "Prepending is much faster in the list implementation than in the array implementation."
+
+
+Test
+  Parameters: (array 10000 0 1000 0) and (list 10000 0 1000 0)
+
+  Expected Results: I expect the array implementation to take 
+  a lot longer because it has to make copies of the whole array
+  each time. 
+
+  Times Obtained:   
+    For array: user+sys = 1.644+.157 = 1.801s
+    For list: user+sys = .357+.235 = .592s
+
+  Analysis:
+    The array implementation took ~3 times as long as the list 
+    implementation. This affirmed the previous predictions made. 
+
+
+*******************************************************************
+
+
+
+
+
+
+4. 
+Claim: "Appending is roughly the same speed for both implementations."
+
+Test
+  Parameters: (list 10000 10000 0 0) and (list 10000 10000 0 0)
+
+  Expected Results: We expect the two test to time very close to 
+  one another.
+
+  Times Obtained:
+    For list: user+sys = 1.060+.417 = 1.477
+    For array: user+sys = .769+.251 = 1.02
+
+  Analysis: While the results were close, they were not close enough
+  to comfortably say it was the same. The list seems to run close
+  to 1.5 times longer. 
+
+
+
+
