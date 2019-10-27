@@ -54,9 +54,33 @@ public abstract class GraphUtils {
   public static <V> void toDot(Graph <V> g, String gname) throws Exception {
     java.io.PrintStream out = new java.io.PrintStream(gname + ".dot");
     out.println("graph " + gname  + " {");
-    for (V v : g.vertices()) 
-      for (V w : g.neighbors(v)) 
+
+
+    Map<V, Iterable<V>>  map = new HashMap<V, Iterable<V>>();
+    for (V v : g.vertices()) { 
+      Iterable<V> n = g.neighbors(v);
+      //check map for each v in neighbors
+      //
+      Iterator it = n.iterator();
+      while(it.hasNext())
+      {
+        if(map.containsKey(it.next()))//then the mapping between the two was already added
+        {
+          it.remove();
+        }
+      }
+      //add to map
+      map.put(v, n);
+    }
+    for(V v : map.keySet())
+    {
+      Iterable<V> n = map.get(v);
+      for(V w : n)
+      {
         out.println("\"" + v + "\" -- \"" + w + "\"");
+      }
+    }
+
     out.println("}");
     out.close();
   }
