@@ -45,9 +45,21 @@ def read_integer_graph(gname):
 #
 # read_string_graph()
 #
-# def write_dot_graph(gname, graph):
+def write_dot_graph(gname, graph):
+    filename = gname + ".dot"
+    file = open(filename, "w")
+    file.write("graph " + gname + " [")
 
-#
+    visited = set()
+    for vertex in graph:
+        edgelist = graph[vertex]
+        for edge in edgelist:
+            if edge not in visited:
+                file.write("\"" + vertex + "\" -- \"" + edge + "\"")
+                file.write("\n")
+        visited.add(vertex)
+    file.write("]")
+    file.close()
 
 
 def usage():
