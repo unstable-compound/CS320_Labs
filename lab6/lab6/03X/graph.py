@@ -43,14 +43,14 @@ def read_integer_graph(gname):
 
 
 #
-def read_string_graph(gname):
+def read_string_graph(gname, sep):
     myDictGraph = dict()
 
     filename = gname + ".sg"
     file = open(filename, "r")
     line = file.readline()
     while line != "":
-        line_list = line.split()
+        line_list = line.split(sep)
         v1 = int(line_list[0])
         v2 = int(line_list[1])
         # add to v1 edge list
