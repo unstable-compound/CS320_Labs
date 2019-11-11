@@ -10,7 +10,7 @@ import os.path
 def read_integer_graph(gname):
     myDictGraph = dict()
 
-    filename = gname + "ig"
+    filename = gname + ".ig"
     file = open(filename, "r")
     file.readline()
     file.readline()
