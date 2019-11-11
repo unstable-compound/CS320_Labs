@@ -51,8 +51,8 @@ def read_string_graph(gname, sep):
     line = file.readline()
     while line != "":
         line_list = line.split(sep)
-        v1 = int(line_list[0])
-        v2 = int(line_list[1])
+        v1 = line_list[0]
+        v2 = line_list[1]
         # add to v1 edge list
         if v1 in myDictGraph:
             e1 = myDictGraph[v1]
