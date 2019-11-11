@@ -43,12 +43,38 @@ def read_integer_graph(gname):
 
 
 #
-# read_string_graph()
-#
+def read_string_graph(gname):
+    myDictGraph = dict()
+
+    filename = gname + ".sg"
+    file = open(filename, "r")
+    line = file.readline()
+    while line != "":
+        line_list = line.split()
+        v1 = int(line_list[0])
+        v2 = int(line_list[1])
+        # add to v1 edge list
+        if v1 in myDictGraph:
+            e1 = myDictGraph[v1]
+        else:
+            e1 = set()
+        e1.add(v2)
+        myDictGraph[v1] = e1
+        # add to v2 edge list
+        if v2 in myDictGraph:
+            e2 = myDictGraph[v2]
+        else:
+            e2 = set()
+        e2.add(v1)
+        myDictGraph[v2] = e2
+        line = file.readline()
+    return myDictGraph
+
+
 def write_dot_graph(gname, graph):
     filename = gname + ".dot"
     file = open(filename, "w")
-    file.write("graph " + gname + " [")
+    file.write("graph " + gname + " [\n")
 
     visited = set()
     for vertex in graph:
