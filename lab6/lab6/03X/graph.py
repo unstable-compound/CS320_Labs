@@ -55,7 +55,7 @@ def write_dot_graph(gname, graph):
         edgelist = graph[vertex]
         for edge in edgelist:
             if edge not in visited:
-                file.write("\"" + vertex + "\" -- \"" + edge + "\"")
+                file.write("\"" + str(vertex) + "\" -- \"" + str(edge) + "\"")
                 file.write("\n")
         visited.add(vertex)
     file.write("]")
