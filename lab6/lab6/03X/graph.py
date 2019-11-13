@@ -51,8 +51,8 @@ def read_string_graph(gname, sep):
     line = file.readline()
     while line != "":
         line_list = line.split(sep)
-        v1 = line_list[0]
-        v2 = line_list[1]
+        v1 = line_list[0].strip()
+        v2 = line_list[1].strip()
         # add to v1 edge list
         if v1 in myDictGraph:
             e1 = myDictGraph[v1]
@@ -74,7 +74,7 @@ def read_string_graph(gname, sep):
 def write_dot_graph(gname, graph):
     filename = gname + ".dot"
     file = open(filename, "w")
-    file.write("graph " + gname + " [\n")
+    file.write("graph " + gname + " {\n")
 
     visited = set()
     for vertex in graph:
@@ -84,7 +84,7 @@ def write_dot_graph(gname, graph):
                 file.write("\"" + str(vertex) + "\" -- \"" + str(edge) + "\"")
                 file.write("\n")
         visited.add(vertex)
-    file.write("]")
+    file.write("}")
     file.close()
 
 
@@ -92,9 +92,16 @@ def usage():
     print('usage: ./graph.py [ file.ig | file.sg sep ]')
     exit(0)
 
+def quick_test():
+    gname = "routes"
+    sep = " "
+    g = read_string_graph(gname, sep)
+    write_dot_graph(gname, g)
+
 
 def main():
-    if len(sys.argv) < 2: usage()
+    if len(sys.argv) < 2:
+        usage()
     f = sys.argv[1]
     gname, kind = os.path.splitext(f)
     if kind == '.ig':
