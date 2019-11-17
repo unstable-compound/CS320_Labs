@@ -5,7 +5,6 @@ class MulExp extends Exp {
 
   void emit(Env<Integer> env, int depth) throws Env.UndefinedId
   {
-    depth += 1;
   
     this.left.emit(env, depth);
     

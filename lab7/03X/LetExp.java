@@ -10,7 +10,7 @@ class LetExp extends Exp {
     
     //generate code for d
 
-    d.emit(env, depth +=1);
+    d.emit(env, depth);
     //this leaves value (x) on top of the stack
 
     env = env.extend(x, depth += 1);

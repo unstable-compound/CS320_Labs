@@ -5,7 +5,7 @@ class NegExp extends Exp {
 
   void emit(Env<Integer> env, int depth) throws Env.UndefinedId
   {
-    exp.emit(env, depth +=1);
+    exp.emit(env, depth);
     System.out.println("NEG");
   }
 }
