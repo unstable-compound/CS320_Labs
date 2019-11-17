@@ -6,10 +6,9 @@ class AddExp extends Exp {
 
   void emit(Env<Integer> env, int depth) throws Env.UndefinedId
   {
-    depth += 1;
-    this.left.emit(env, depth);
-    depth += 1;
-    this.right.emit(env, depth);
+    depth +=1;
+    this.left.emit(env, depth); 
+    this.right.emit(env, depth + 1);
     System.out.println("ADD");
 
   }

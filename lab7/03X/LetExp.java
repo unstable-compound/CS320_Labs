@@ -7,14 +7,15 @@ class LetExp extends Exp {
   void emit(Env<Integer> env, int depth) throws Env.UndefinedId
   {
   
-    int depth_d = depth + 1;
-    int depth_e = depth + 2;
+    
     //generate code for d
-    d.emit(env.extend(x, depth), depth_d);
+
+    d.emit(env, depth +=1);
     //this leaves value (x) on top of the stack
 
+    env = env.extend(x, depth += 1);
     //generate code for e
-    e.emit(env, depth_e);
+    e.emit(env, depth);
 
     System.out.println("SWAP 1");
     System.out.println("POP");

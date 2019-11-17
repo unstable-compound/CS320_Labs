@@ -6,7 +6,8 @@ class IdExp extends Exp {
   {
     int x_depth = env.lookup(id);
     int i = depth - x_depth;
-    System.out.println("DUP " + i);
+    
+    System.out.println("DUP " + (i -1));
     
   }
 }
