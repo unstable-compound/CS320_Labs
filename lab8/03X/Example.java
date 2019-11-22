@@ -31,19 +31,32 @@ class PSet {
   }
 
   static PSet rect(Point corner1, Point corner2) {
+
     throw new Error();
   }
 
   PSet union(PSet set) {
-    throw new Error();
+    return new PSet(point -> ps.test(point) || set.ps.test(point));
   }
 
   PSet complement() {
-    throw new Error();
+    return new PSet(point -> ps.test(point) == false);
   }
 
   PSet reflectx() { 
     throw new Error();
+
+    //intial go - probs not functional
+    //transform a p?
+    //function we are needing to emulate:
+    //  (x, y) => (x, -y)
+    //////////////////////what?
+
+    point -> {
+      if(ps.test(point))
+      return new Point(point.x, -point.y)
+    }
+
   }
 }
   
