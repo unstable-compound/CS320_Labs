@@ -31,12 +31,14 @@ class PSet {
   }
 
   static PSet rect(Point corner1, Point corner2) {
+    return new PSet(point -> corner1.distance(point)<= corner1.distance(corner2) 
+                        && corner2.distance(point) <= corner2.distance(corner1));
 
-    throw new Error();
+
   }
 
   PSet union(PSet set) {
-    return new PSet(point -> ps.test(point) || set.ps.test(point));
+    return new PSet(point -> (ps.test(point) || set.ps.test(point)));
   }
 
   PSet complement() {
@@ -44,18 +46,9 @@ class PSet {
   }
 
   PSet reflectx() { 
-    throw new Error();
-
-    //intial go - probs not functional
-    //transform a p?
-    //function we are needing to emulate:
-    //  (x, y) => (x, -y)
-    //////////////////////what?
-
-    point -> {
-      if(ps.test(point))
-      return new Point(point.x, -point.y)
-    }
+    //for each point (x, y), we want a new point (x, -y)
+    return new PSet(p -> in(new Point(p.x, -p.y)));
+    //return new PSet(p -> (q -> ps.test(q)) && p.x == q.x && p.y == -q.y);
 
   }
 }
@@ -66,7 +59,24 @@ class Example {
     double x = Double.parseDouble(argv[0]);
     double y = Double.parseDouble(argv[1]);
     Point p = new Point(x,y);
+    //two circles of radius 2, one with center (0,0) and one with center (0, 2)
+    //these two circles intersection:
     PSet myregion = PSet.disk(new Point(0,0),2).intersect(PSet.disk(new Point(0,2),2));
     System.out.println(myregion.in(p));
+
+    PSet comp = myregion.complement();
+    System.out.println(comp.in(p));
+
+    PSet ref = myregion.reflectx();
+    System.out.println(ref.in(p));
+
+
+    PSet un = comp.union(myregion);//all points should be included in un now
+    System.out.println(un.in(p));
+
+
+    PSet rec = PSet.rect(new Point(2,2), new Point(0,2));
+    System.out.println(rec.in(p));
+
   }
 }
