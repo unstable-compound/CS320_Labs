@@ -1,0 +1,32 @@
+int i, j, k;
+i = j = k = 1;
+
+boolean a, b, c;
+a = b = c = true;
+
+
+if(i)
+{
+  b = false;
+}
+
+if(b)
+{
+  j = false;
+}
+
+if(b == i)
+{
+  i = i + false;
+}
+
+while(b)
+{
+  b = 1;
+  if(k <= a)
+  {
+    b = false;
+  }
+  
+}
+
