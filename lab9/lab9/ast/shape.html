@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>My Pretty-Printed Mini Program</title>
+<style type="text/css">
+  body     {white-space:pre;
+            background-color:#ffffcc;
+            color:black;
+            font-family:"Lucida Console","Courier New",Monotype}
+  .normalId    {background-color:transparent}
+  .defId       {color:red}
+  .useId       {color:blue}
+  .highlightId {background-color:lightblue}
+</style>
+</head>
+<script language="javascript">
+function change(n,m,s) {
+  elem=document.getElementById("("+n+", "+m+")");
+  elem.className=s;
+}
+function highlightId(n, m) { change(n,m,"highlightId"); }
+function defId(n, m)       { change(n,m,"defId"); }
+function useId(n, m)       { change(n,m,"useId"); }
+function normalId(n, m)    { change(n,m,"normalId"); }
+</script>
+<body>
+boolean <span class="normal" id="(9, 1)" title="(9, 1)" onmouseover="defId(9, 1);highlightId(11, 37);highlightId(11, 15);highlightId(4, 6);highlightId(1, 2)" onmouseout="normalId(9, 1);normalId(11, 37);normalId(11, 15);normalId(4, 6);normalId(1, 2)">b</span>;
+<span class="normal" id="(1, 2)" title="(1, 2)" onmouseover="useId(1, 2);highlightId(9, 1)" onmouseout="normalId(1, 2);normalId(9, 1)">b</span> = true;
+int <span class="normal" id="(5, 3)" title="(5, 3)" onmouseover="defId(5, 3);highlightId(18, 40);highlightId(14, 34);highlightId(18, 18);highlightId(14, 12);highlightId(6, 8);highlightId(1, 4)" onmouseout="normalId(5, 3);normalId(18, 40);normalId(14, 34);normalId(18, 18);normalId(14, 12);normalId(6, 8);normalId(1, 4)">t</span>;
+<span class="normal" id="(1, 4)" title="(1, 4)" onmouseover="useId(1, 4);highlightId(5, 3)" onmouseout="normalId(1, 4);normalId(5, 3)">t</span> = 1;
+if (<span class="normal" id="(4, 6)" title="(4, 6)" onmouseover="useId(4, 6);highlightId(9, 1)" onmouseout="normalId(4, 6);normalId(9, 1)">b</span>) {
+    if (<span class="normal" id="(6, 8)" title="(6, 8)" onmouseover="useId(6, 8);highlightId(5, 3)" onmouseout="normalId(6, 8);normalId(5, 3)">t</span>>=1) {
+        int <span class="normal" id="(9, 10)" title="(9, 10)" onmouseover="defId(9, 10);highlightId(16, 28);highlightId(14, 18);highlightId(9, 12);highlightId(5, 11)" onmouseout="normalId(9, 10);normalId(16, 28);normalId(14, 18);normalId(9, 12);normalId(5, 11)">k</span>;
+        <span class="normal" id="(5, 11)" title="(5, 11)" onmouseover="useId(5, 11);highlightId(9, 10)" onmouseout="normalId(5, 11);normalId(9, 10)">k</span> = 2;
+        if (<span class="normal" id="(9, 12)" title="(9, 12)" onmouseover="useId(9, 12);highlightId(9, 10)" onmouseout="normalId(9, 12);normalId(9, 10)">k</span>==<span class="normal" id="(14, 12)" title="(14, 12)" onmouseover="useId(14, 12);highlightId(5, 3)" onmouseout="normalId(14, 12);normalId(5, 3)">t</span>) {
+            boolean <span class="normal" id="(15, 14)" title="(15, 14)" onmouseover="defId(15, 14);highlightId(7, 15)" onmouseout="normalId(15, 14);normalId(7, 15)">c</span>;
+            <span class="normal" id="(7, 15)" title="(7, 15)" onmouseover="useId(7, 15);highlightId(15, 14)" onmouseout="normalId(7, 15);normalId(15, 14)">c</span> = <span class="normal" id="(11, 15)" title="(11, 15)" onmouseover="useId(11, 15);highlightId(9, 1)" onmouseout="normalId(11, 15);normalId(9, 1)">b</span>;
+        } else
+            if (<span class="normal" id="(14, 18)" title="(14, 18)" onmouseover="useId(14, 18);highlightId(9, 10)" onmouseout="normalId(14, 18);normalId(9, 10)">k</span><<span class="normal" id="(18, 18)" title="(18, 18)" onmouseover="useId(18, 18);highlightId(5, 3)" onmouseout="normalId(18, 18);normalId(5, 3)">t</span>) {
+                boolean <span class="normal" id="(15, 20)" title="(15, 20)" onmouseover="defId(15, 20);highlightId(7, 21)" onmouseout="normalId(15, 20);normalId(7, 21)">a</span>;
+                <span class="normal" id="(7, 21)" title="(7, 21)" onmouseover="useId(7, 21);highlightId(15, 20)" onmouseout="normalId(7, 21);normalId(15, 20)">a</span> = false;
+            } else {
+                boolean <span class="normal" id="(15, 25)" title="(15, 25)" onmouseover="defId(15, 25);highlightId(7, 26)" onmouseout="normalId(15, 25);normalId(7, 26)">d</span>;
+                <span class="normal" id="(7, 26)" title="(7, 26)" onmouseover="useId(7, 26);highlightId(15, 25)" onmouseout="normalId(7, 26);normalId(15, 25)">d</span> = true;
+            }
+        print 1+<span class="normal" id="(16, 28)" title="(16, 28)" onmouseover="useId(16, 28);highlightId(9, 10)" onmouseout="normalId(16, 28);normalId(9, 10)">k</span>;
+    } else {
+        int <span class="normal" id="(9, 32)" title="(9, 32)" onmouseover="defId(9, 32);highlightId(16, 50);highlightId(14, 40);highlightId(9, 34);highlightId(5, 33)" onmouseout="normalId(9, 32);normalId(16, 50);normalId(14, 40);normalId(9, 34);normalId(5, 33)">k</span>;
+        <span class="normal" id="(5, 33)" title="(5, 33)" onmouseover="useId(5, 33);highlightId(9, 32)" onmouseout="normalId(5, 33);normalId(9, 32)">k</span> = 4;
+        if (<span class="normal" id="(9, 34)" title="(9, 34)" onmouseover="useId(9, 34);highlightId(9, 32)" onmouseout="normalId(9, 34);normalId(9, 32)">k</span>==<span class="normal" id="(14, 34)" title="(14, 34)" onmouseover="useId(14, 34);highlightId(5, 3)" onmouseout="normalId(14, 34);normalId(5, 3)">t</span>) {
+            boolean <span class="normal" id="(15, 36)" title="(15, 36)" onmouseover="defId(15, 36);highlightId(7, 37)" onmouseout="normalId(15, 36);normalId(7, 37)">c</span>;
+            <span class="normal" id="(7, 37)" title="(7, 37)" onmouseover="useId(7, 37);highlightId(15, 36)" onmouseout="normalId(7, 37);normalId(15, 36)">c</span> = <span class="normal" id="(11, 37)" title="(11, 37)" onmouseover="useId(11, 37);highlightId(9, 1)" onmouseout="normalId(11, 37);normalId(9, 1)">b</span>;
+        } else
+            if (<span class="normal" id="(14, 40)" title="(14, 40)" onmouseover="useId(14, 40);highlightId(9, 32)" onmouseout="normalId(14, 40);normalId(9, 32)">k</span><<span class="normal" id="(18, 40)" title="(18, 40)" onmouseover="useId(18, 40);highlightId(5, 3)" onmouseout="normalId(18, 40);normalId(5, 3)">t</span>) {
+                boolean <span class="normal" id="(15, 42)" title="(15, 42)" onmouseover="defId(15, 42);highlightId(7, 43)" onmouseout="normalId(15, 42);normalId(7, 43)">a</span>;
+                <span class="normal" id="(7, 43)" title="(7, 43)" onmouseover="useId(7, 43);highlightId(15, 42)" onmouseout="normalId(7, 43);normalId(15, 42)">a</span> = false;
+            } else {
+                boolean <span class="normal" id="(15, 47)" title="(15, 47)" onmouseover="defId(15, 47);highlightId(7, 48)" onmouseout="normalId(15, 47);normalId(7, 48)">d</span>;
+                <span class="normal" id="(7, 48)" title="(7, 48)" onmouseover="useId(7, 48);highlightId(15, 47)" onmouseout="normalId(7, 48);normalId(15, 47)">d</span> = true;
+            }
+        print 1+<span class="normal" id="(16, 50)" title="(16, 50)" onmouseover="useId(16, 50);highlightId(9, 32)" onmouseout="normalId(16, 50);normalId(9, 32)">k</span>;
+    }
+} else
+    ;
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+digraph AST {
+node [style=filled fontname=Courier fontsize=16];
+edge [dir=back];
+0[label="i" fillcolor="lemonchiffon"];1[label="t" fillcolor="lemonchiffon"];0 -> 1;
+}

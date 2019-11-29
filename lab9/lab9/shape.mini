@@ -1,0 +1,57 @@
+boolean b;
+b = true;
+int t;
+t = 1;
+
+if(b)
+{
+  if(t >= 1)
+  {
+    int k;
+    k = 2;
+    if( k == t)
+    {
+      boolean c;
+      c = b;
+      
+    }
+    else if( k < t)
+    {
+      boolean a;
+      a = false;
+    }
+    else
+    {
+      boolean d;
+      d = true;
+    }
+    print (1 + k);
+
+  }
+  else{
+    int k;
+    k = 4;
+    if( k == t)
+    {
+      boolean c;
+      c = b;
+      
+    }
+    else if( k < t)
+    {
+      boolean a;
+      a = false;
+    }
+    else
+    {
+      boolean d;
+      d = true;
+    }
+    print (1 + k);
+
+
+  }
+}
+
+
+
