@@ -102,7 +102,10 @@ public abstract class BinExpr extends Expr {
      *  been evaluated.
      */
     public VarSet analyze(InitAnalysis init, VarSet initialized) {
-        return right.analyze(init, left.analyze(init, initialized));
+      VarSet left_var = left.analyze(init, initialized);
+      right.analyze(init, left_var);
+      return left_var;
+
     }
 
     /** Rewrite this expression using algebraic identities to reduce
